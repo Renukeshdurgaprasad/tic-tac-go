@@ -88,3 +88,33 @@ int findMove(char s){
 	 return 4;
 	return -1;
 }
+int ComputerMove(){
+	int move=findMove('X');
+	if(move!=-1)
+	 return move;
+	move=findMove('O');
+	if (move!=-1)
+    return move;
+    if (isdigit(box[4]))
+     return 4;
+    int cor[]={0,2,6,8};
+    int count=0,i;
+    int arr[4];
+    for(i=0;i<4;i++){
+    	if (isdigit(box[cor[i]])){
+    		arr[count]=cor[i];
+    		count+=1;
+		}
+	}
+	if (count!=0)
+	 return arr[rand()%count];
+	int sid[]={1,3,5,7};
+	int arri[4];
+	for(i=0;i<4;i++){
+    	if (isdigit(box[sid[i]])){
+    		arri[count]=sid[i];
+    		count+=1;
+		}
+	}
+	return arri[rand()%count];	
+}

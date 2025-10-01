@@ -17,3 +17,20 @@ void winClear(){
 	 system("clear");
 	#endif
 }
+void drawboard(){
+	winClear();
+	printf("\n\t\t\t\tTIC - TAC - TOE \n\n");
+	if(choice==1)
+	  printf("\t\t\t player 1- 'X'  player 2 -\'O' \n\n");
+	else
+	  printf("\t\t\t Computer - 'X'  player -\'O' \n\n");
+	int i=0;
+	printf("\n\t\t\t\t ___ ___ ___");
+	for (i=0;i<9;i+=3){
+		printf("\n\t\t\t\t|   |   |   |\n");
+		printf("\t\t\t\t| %c | %c | %c |\n",box[i],box[i+1],box[i+2]);
+		printf("\t\t\t\t|___|___|___|");
+	}
+	printf("\n");
+	 
+}

@@ -55,3 +55,36 @@ int check(){
 	 }
 	 return 0;
 }
+int findMove(char s){
+	int i;
+	for (i=0;i<9;i+=3){
+		if(box[i]==s && box[i+1]==s && isdigit( box[i+2]))
+		 return i+2;
+		if(box[i]==s && box[i+2]==s && isdigit( box[i+1]))
+		 return i+1;
+		 if(box[i+2]==s && box[i+1]==s && isdigit( box[i]))
+		 return i;
+	}
+	for(i=0;i<3;i++){
+		if(box[i]==s && box[i+3]==s && isdigit( box[i+6]))
+		 return i+6;
+		if(box[i]==s && box[i+6]==s && isdigit( box[i+3]))
+		 return i+3;
+		 if(box[i+6]==s && box[i+3]==s && isdigit( box[i]))
+		 return i;
+		
+	}
+	if(box[0]==s && box[4]==s && isdigit(box[8]))
+	 return 8;
+	 	if(box[0]==s && box[8]==s && isdigit(box[4]))
+	 return 4;
+		if(box[8]==s && box[4]==s && isdigit(box[0]))
+	 return 0;
+	 	if(box[2]==s && box[4]==s && isdigit(box[6]))
+	 return 6;
+	 	if(box[6]==s && box[4]==s && isdigit(box[2]))
+	 return 2;
+	 	if(box[2]==s && box[6]==s && isdigit(box[4]))
+	 return 4;
+	return -1;
+}

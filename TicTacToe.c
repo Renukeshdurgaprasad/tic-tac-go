@@ -118,3 +118,102 @@ int ComputerMove(){
 	}
 	return arri[rand()%count];	
 }
+void playerVSplayer(){
+	int player=1,con=1,valid=0;
+	int i=0;
+	for (i=0;i<9;i++)
+	 box[i]=(i+1)+'0';
+	while(valid==0){
+		printf("\n\tenter the  player 1 or player 2 to start the game (1/2): ");
+	scanf("%d",&player);
+	if(player==1 || player==2)
+	 valid=1;
+	 else{
+	 	printf("\n\t    enter the valid number(1 or 2)!\n");
+	 }
+	}
+	valid=0;
+	
+	int status=-1;
+	int pos;
+	drawboard();
+	do{
+		player=(player%2)?1:2;
+		printf("\n\n\t\t\t  player %d enter your sqaure:",player);
+		scanf("%d",&pos);
+		if (pos>=1 && pos<=9 && box[pos-1]==(pos+'0'))
+		 box[pos-1]= player==1?'X':'O';
+		else{
+			printf("\n\t\t   invalid  choice player %d enter the valid choice!\n",player);
+			getchar();
+			getchar();
+			continue;
+		}
+		player++;
+		status=check();
+		drawboard();
+	}while(status==-1);
+	printf("\n\t\t\t   ------------------------");
+	if (status==1){
+		 printf("\n\t\t\t    \aplayer %d is the winner\n",--player);
+	}
+	else
+	 printf("\n\t\t\t\t \aMatch is draw\n");
+	printf("\t\t\t   ------------------------\n");
+	getchar();
+	getchar();
+	winClear();
+
+	
+}
+void playerVScomputer(){
+	int status=-1,lastMove;
+	int pos;
+	drawboard();
+	int move=1;
+	do{
+		printf("\n\t\t\t\t PLAYER MOVE");
+	do{
+		printf("\n\n\t\t\t     Enter your square : ");
+	scanf("%d",&pos);
+	if (pos>=1 && pos<=9 && box[pos-1]==(pos+'0')){
+		 box[pos-1]='O';
+		 move=0;
+	}
+	 else{
+	 	printf("\n\t\t\tinvalid choice.. enter the valid choice !");
+	 	move=1;
+	 	getchar();
+	 	getchar();
+	 	
+	 }
+	  
+	}while(move==1);
+	status=check();
+	drawboard();
+	lastMove=1;
+	if(status!=-1)
+	 break;
+	 printf("\n\n\t\t\t\tCOMPUTER MOVE.... ");
+	   sleep(3000);
+		int comMove=ComputerMove();
+		box[comMove]='X';
+		status=check();
+	drawboard();
+		lastMove=2;
+	}while(status==-1);
+	if(status==1){
+		if(lastMove==1)
+		 printf("\n\n\t\t\t \aCongratulations ,You Won ..!");
+		else
+		  printf("\n\n\t\t\t \aComputer Won .., better luck next time !");
+	}
+	else{
+		printf("\n\n\t\t\t \aIt's Draw .., better luck next time !");
+	}
+	sleep(50);
+	getchar();
+	getchar();
+	winClear();	
+	
+}

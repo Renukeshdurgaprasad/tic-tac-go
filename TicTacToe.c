@@ -217,3 +217,41 @@ void playerVScomputer(){
 	winClear();	
 	
 }
+int main(){
+	int valid=0;
+	do{
+		int i;
+		for(i=0;i<9;i++)
+		 box[i]=(i+1)+'0';
+		printf("\n\t\t\t--------------------------------");
+   sleep(100);
+   printf("\n\t\t\t|  WELCOME TO TIC - TAC - TOE  |");
+   sleep(100);
+   printf("\n\t\t\t--------------------------------\n");
+   sleep(500);
+   printf("\n\t\t   1) PLAYER VS PLAYER    2) COMPUTER VS PLAYER \n");
+   printf("\n\t\t\t\t    3)  EXIT \n");
+   while(valid==0){
+   	 printf("\n\t\t\t    Enter your choice:");
+   scanf("%d",&choice);
+   if(choice==1 || choice==2 || choice==3)
+    valid=1;
+   else{
+   	printf("\nenter the valid choice !\n");
+   }
+   }
+   valid=0;
+   winClear();
+   if(choice==1)
+    playerVSplayer();
+   else if (choice==2)
+    playerVScomputer();
+  else{
+  	printf("\n\t\t\t THANK YOU FOR PLAYING THE GAME \n");
+  	 printf("\n\t\t\t  EXITING FROM  THE GAME...!\n\n\n");
+  }
+  	
+	}while(choice!=3);
+	
+}
+

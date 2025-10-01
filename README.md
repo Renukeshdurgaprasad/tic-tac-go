@@ -20,9 +20,11 @@ It uses the console/terminal for the game board, with clear visuals and interact
 
 ---
 
-## 📂 Project Structure  
+## 📂 Project Structure 
+```
 ├── tic_tac_toe.c # Main C source file (game logic)
 |__ README.md # Documentation
+```
 
 ---
 
@@ -41,8 +43,8 @@ gcc tic_tac_toe.c -o tic_tac_toe
 ```
 ### 🔹 On Windows (Visual Studio)
 
--Open Command Prompt or terminal where the file is saved.
--Compile and Run the game:
+- Open Command Prompt or terminal where the file is saved.
+- Compile and Run the game:
 ```bash
   gcc tic_tac_toe.c -o tic_tac_toe.exe
   tic_tac_toe.exe

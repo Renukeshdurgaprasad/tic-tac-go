@@ -34,3 +34,24 @@ void drawboard(){
 	printf("\n");
 	 
 }
+int check(){
+	int i=0;
+	for (i=0;i<9;i+=3){
+		if(box[i]==box[i+1] && box[i+1]==box[i+2])
+		 return 1;
+	}
+	for(i=0;i<3;i++){
+		if(box[i]==box[i+3] && box[i+3]==box[i+6])
+		 return 1;
+	}
+	if (box[0]==box[4] && box[4]==box[8])
+	 return 1;
+	if (box[2]==box[4] && box[4]==box[6])
+	 return 1;
+	for (i=0;i<9;i++)
+	 {
+	 	if(box[i]!='X' && box[i]!='O')
+	 	 return -1;
+	 }
+	 return 0;
+}
